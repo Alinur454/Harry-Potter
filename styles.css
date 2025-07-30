@@ -1,0 +1,731 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Gryffindor Colors */
+    --gryffindor-red: #7C0A02;
+    --gryffindor-gold: #FFCF1B;
+    
+    /* Slytherin Colors */
+    --slytherin-green: #1A472A;
+    --slytherin-silver: #AAAAAA;
+    
+    /* Ravenclaw Colors */
+    --ravenclaw-blue: #0E1A40;
+    --ravenclaw-bronze: #946B2D;
+    
+    /* Hufflepuff Colors */
+    --hufflepuff-yellow: #FFD800;
+    --hufflepuff-black: #372E29;
+    
+    /* Dark magical colors */
+    --dark-purple: #1a0d26;
+    --deep-blue: #0f1729;
+    --midnight-black: #0a0a0a;
+    --mystical-gold: #c9a961;
+    --silver-mist: #c0c0c0;
+    --shadow-gray: #2d2d2d;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(135deg, var(--dark-purple) 0%, var(--deep-blue) 50%, var(--midnight-black) 100%);
+    color: var(--silver-mist);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    color: var(--mystical-gold);
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header and Navigation */
+.header {
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid var(--mystical-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.crest-logo {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 10px var(--mystical-gold));
+}
+
+.site-title {
+    font-size: 1.5rem;
+    color: var(--mystical-gold);
+    text-shadow: 0 0 10px var(--mystical-gold);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--silver-mist);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--mystical-gold);
+    text-shadow: 0 0 10px var(--mystical-gold);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--mystical-gold), transparent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.hero-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px var(--mystical-gold);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--silver-mist);
+    margin-bottom: 2rem;
+}
+
+.magic-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, var(--mystical-gold) 1px, transparent 1px),
+        radial-gradient(circle at 80% 20%, var(--mystical-gold) 1px, transparent 1px),
+        radial-gradient(circle at 40% 70%, var(--mystical-gold) 1px, transparent 1px),
+        radial-gradient(circle at 90% 80%, var(--mystical-gold) 1px, transparent 1px),
+        radial-gradient(circle at 10% 90%, var(--mystical-gold) 1px, transparent 1px);
+    background-size: 200px 200px, 300px 300px, 250px 250px, 180px 180px, 220px 220px;
+    animation: twinkle 4s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 20px var(--mystical-gold); }
+    to { text-shadow: 0 0 30px var(--mystical-gold), 0 0 40px var(--mystical-gold); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Page Hero */
+.page-hero {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+}
+
+.page-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    color: var(--silver-mist);
+    font-style: italic;
+}
+
+/* Sections */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--mystical-gold), transparent);
+    transform: translateX(-50%);
+}
+
+.intro-section,
+.features-section,
+.characters-section,
+.houses-section,
+.books-section,
+.movies-section {
+    padding: 4rem 0;
+}
+
+/* Introduction Section */
+.intro-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.magical-quote {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--mystical-gold);
+    position: relative;
+}
+
+.magical-quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--mystical-gold);
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-family: 'Cinzel', serif;
+}
+
+blockquote {
+    font-style: italic;
+    color: var(--silver-mist);
+    margin-bottom: 1rem;
+}
+
+cite {
+    color: var(--mystical-gold);
+    font-weight: 600;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, var(--mystical-gold), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.feature-card:hover::before {
+    opacity: 0.1;
+    animation: shimmer 1s ease-in-out;
+}
+
+.feature-card:hover {
+    border-color: var(--mystical-gold);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(201, 169, 97, 0.3);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 2rem;
+    background: linear-gradient(45deg, var(--mystical-gold), #d4af37);
+    color: var(--midnight-black);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.feature-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(201, 169, 97, 0.5);
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Characters Section */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.character-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid var(--shadow-gray);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.character-card.gryffindor {
+    border-color: var(--gryffindor-red);
+    background: linear-gradient(135deg, rgba(124, 10, 2, 0.1), rgba(0, 0, 0, 0.7));
+}
+
+.character-card.slytherin {
+    border-color: var(--slytherin-green);
+    background: linear-gradient(135deg, rgba(26, 71, 42, 0.1), rgba(0, 0, 0, 0.7));
+}
+
+.character-card.dark {
+    border-color: #333;
+    background: linear-gradient(135deg, rgba(51, 51, 51, 0.2), rgba(0, 0, 0, 0.9));
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.character-avatar {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.character-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.character-house {
+    color: var(--mystical-gold);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.character-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.character-traits {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.character-traits li {
+    background: var(--mystical-gold);
+    color: var(--midnight-black);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Houses Section */
+.houses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+}
+
+.house-card {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 3px solid;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.gryffindor-house {
+    border-color: var(--gryffindor-red);
+    background: linear-gradient(135deg, rgba(124, 10, 2, 0.15), rgba(0, 0, 0, 0.8));
+}
+
+.slytherin-house {
+    border-color: var(--slytherin-green);
+    background: linear-gradient(135deg, rgba(26, 71, 42, 0.15), rgba(0, 0, 0, 0.8));
+}
+
+.ravenclaw-house {
+    border-color: var(--ravenclaw-blue);
+    background: linear-gradient(135deg, rgba(14, 26, 64, 0.15), rgba(0, 0, 0, 0.8));
+}
+
+.hufflepuff-house {
+    border-color: var(--hufflepuff-yellow);
+    background: linear-gradient(135deg, rgba(255, 216, 0, 0.15), rgba(0, 0, 0, 0.8));
+}
+
+.house-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.house-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.house-emblem {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.house-name {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.house-motto {
+    font-style: italic;
+    color: var(--silver-mist);
+    font-size: 1.1rem;
+}
+
+.house-details {
+    margin-bottom: 2rem;
+}
+
+.house-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(192, 192, 192, 0.2);
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--mystical-gold);
+}
+
+.info-value {
+    color: var(--silver-mist);
+}
+
+.notable-members h4 {
+    color: var(--mystical-gold);
+    margin-bottom: 0.5rem;
+}
+
+.notable-members ul {
+    list-style: none;
+    columns: 2;
+    column-gap: 2rem;
+}
+
+.notable-members li {
+    margin-bottom: 0.25rem;
+    color: var(--silver-mist);
+}
+
+/* Books Section */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.book-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--shadow-gray);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.book-card:hover {
+    border-color: var(--mystical-gold);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(201, 169, 97, 0.2);
+}
+
+.book-number {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: var(--mystical-gold);
+    color: var(--midnight-black);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.book-title {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-year {
+    color: var(--mystical-gold);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.book-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.book-themes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.theme {
+    background: rgba(201, 169, 97, 0.2);
+    color: var(--mystical-gold);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    border: 1px solid var(--mystical-gold);
+}
+
+/* Movies Section */
+.movies-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.movie-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    border: 1px solid var(--mystical-gold);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--mystical-gold);
+    font-family: 'Cinzel', serif;
+}
+
+.stat-label {
+    color: var(--silver-mist);
+    font-size: 1.1rem;
+}
+
+.movie-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.legacy-section {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid var(--mystical-gold);
+}
+
+.legacy-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.legacy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.legacy-item {
+    text-align: center;
+}
+
+.legacy-item h4 {
+    color: var(--mystical-gold);
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 2px solid var(--mystical-gold);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-quote {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--mystical-gold);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .intro-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .houses-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .movies-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .movie-stats {
+        flex-direction: row;
+    }
+    
+    .legacy-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid,
+    .characters-grid,
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .feature-card,
+    .character-card,
+    .book-card {
+        padding: 1.5rem;
+    }
+}
